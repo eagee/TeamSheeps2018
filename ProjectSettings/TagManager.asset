@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dot
   - Target
+  - body_image
   layers:
   - Default
   - TransparentFX

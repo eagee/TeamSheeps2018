@@ -14,24 +14,53 @@ public class DanceManager : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
+        m_ActiveTargets = new List<GameObject>();
         m_listIndex = 0;
         string path = Path.Combine(AnimationDirectory, KeyframeAnimations[m_listIndex]);
         string json = File.ReadAllText(path);
         m_ActiveData = JsonUtility.FromJson< KeyframeData>(json);
-        m_ActiveTargets = new List<GameObject>();
         CreateTargetsForKeyFrame(m_keyFrameIndex);
     }
 
     void CreateTargetsForKeyFrame(int keyframe)
     {
-        if(keyframe < m_ActiveData.KeyFrames.Count)
+        
+        // Create a copy of the targets for the last frame so that we can
+        // use them as our starting positions
+        List<GameObject> lastActiveTargets = new List<GameObject>();
+        foreach (GameObject obj in m_ActiveTargets)
         {
-            foreach(Vec3Wrapper pos in m_ActiveData.KeyFrames[keyframe].vec3List)
+            lastActiveTargets.Add(obj);
+        }
+        m_ActiveTargets.Clear();
+
+        // Create a new set of targets based on the next key frame (starting them at the
+        // position of our last targets)
+        if (m_ActiveData.KeyFrames.Count > 0 && keyframe < m_ActiveData.KeyFrames.Count)
+        {
+            for(int index = 0; index < m_ActiveData.KeyFrames[keyframe].vec3List.Count; index++)
             {
-                GameObject newTarget = Instantiate(targetPrefab, pos.vector, Quaternion.identity);
+                Vector3 startingPosition;
+                if (lastActiveTargets.Count == 0)
+                {
+                    startingPosition = m_ActiveData.KeyFrames[keyframe].vec3List[index].vector;
+                }
+                else
+                {
+                    startingPosition = lastActiveTargets[index].transform.position;
+                }
+                GameObject newTarget = Instantiate(targetPrefab, startingPosition, Quaternion.identity);
+                newTarget.GetComponent<TargetScript>().TargetPostion = m_ActiveData.KeyFrames[keyframe].vec3List[index].vector;
                 m_ActiveTargets.Add(newTarget);
             }
         }
+
+        // Destroy the last active targets, we no longer need them
+        foreach (GameObject obj in lastActiveTargets)
+        {
+            obj.GetComponent<TargetScript>().HandleDestruction();
+        }
+        lastActiveTargets.Clear();
     }
     
     bool AllTargetsInFrameAreActivated()
@@ -64,11 +93,6 @@ public class DanceManager : MonoBehaviour {
     {
         if(AllTargetsInFrameAreActivated())
         {
-            foreach(GameObject obj in m_ActiveTargets)
-            {
-                obj.GetComponent<TargetScript>().HandleDestruction();
-            }
-            m_ActiveTargets.Clear();
             m_keyFrameIndex++;
             if (m_keyFrameIndex < m_ActiveData.KeyFrames.Count)
             {

@@ -6,15 +6,18 @@ using System.IO;
 
 public class KinectKeyFrameRecorder : MonoBehaviour {
     public string AnimationName = "";
+    public string AnimationDirectory = "Q:\\TeamSheeps\\TeamSheeps2018\\TeamSheeps2018\\Assets\\AwakeAssets\\DancingAnimations\\Dances\\";
+    public float FrameTime = 1.0f / 8.0f;
     private Dictionary<JointType, GameObject> m_jointObjects;
     private KeyframeData m_keyframeData;
-    private bool m_Recording;
+    public bool IsRecording = false;
+    private bool m_LastRecordingState = false;
     private float m_frameTimer;
 
     // Use this for initialization
     void Start()
     {
-        m_Recording = false;
+        IsRecording = false;
         m_jointObjects = new Dictionary<JointType, GameObject>();
         m_keyframeData = new KeyframeData();
         m_keyframeData.Name = "TestDance";
@@ -29,20 +32,18 @@ public class KinectKeyFrameRecorder : MonoBehaviour {
     void Update()
     {
         m_frameTimer += Time.deltaTime;
-        if (m_Recording && m_frameTimer >= 1.0f / 16.0f)
+        if(m_LastRecordingState != IsRecording)
+        {
+            if(m_LastRecordingState == true && IsRecording == false)
+            {
+                SaveKeyframesToJson();
+            }
+            m_LastRecordingState = IsRecording;
+        }
+        if (IsRecording && m_frameTimer >= FrameTime)
         {
             m_frameTimer = 0;
             RecordKeyframe();
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            m_Recording = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            m_Recording = false;
-            SaveKeyframesToJson();
         }
     }
 
@@ -64,13 +65,13 @@ public class KinectKeyFrameRecorder : MonoBehaviour {
 
     private void SaveKeyframesToJson()
     {
-        string filePath = "C:\\Temp\\" + AnimationName + ".json";
+        string filePath = AnimationDirectory + AnimationName + ".json";
         Debug.Log("Writing keyframe file to: " + filePath);
         string json = JsonUtility.ToJson(m_keyframeData);
 
         while(File.Exists(filePath))
         {
-            filePath = "C:\\Temp\\" + AnimationName + Random.Range(0, 10000).ToString() + ".json";
+            filePath = AnimationDirectory + AnimationName + Random.Range(0, 10000).ToString() + ".json";
         }
 
         File.WriteAllText(filePath, json);
