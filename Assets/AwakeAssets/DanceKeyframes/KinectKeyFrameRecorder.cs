@@ -32,7 +32,9 @@ public class KinectKeyFrameRecorder : MonoBehaviour {
             foreach (KeyValuePair<JointType, GameObject> jointData in m_jointObjects)
             {
                 Debug.Log("Adding joint!");
-                newKeyFrame.vec3List.Add(jointData.Value.transform.position);
+                Vec3Wrapper vec3 = new Vec3Wrapper();
+                vec3.vector = jointData.Value.transform.position;
+                newKeyFrame.vec3List.Add(vec3);
             }
 
             m_keyframeData.KeyFrames.Add(newKeyFrame);

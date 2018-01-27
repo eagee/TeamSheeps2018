@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Vec3ListWrapper
+public class Vec3Wrapper
 {
-    public List<Vec3Wrapper> vec3List = new List<Vec3Wrapper>();
+    public Vector3 vector;
 }
