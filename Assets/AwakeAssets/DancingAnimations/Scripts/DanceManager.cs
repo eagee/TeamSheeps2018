@@ -11,15 +11,28 @@ public class DanceManager : MonoBehaviour {
     private int m_listIndex = 0;
     private int m_keyFrameIndex = 0;
     private List<GameObject> m_ActiveTargets;
-    
-    // Use this for initialization
-    void Start () {
-        m_ActiveTargets = new List<GameObject>();
-        m_listIndex = 0;
+    private int m_currentScore;
+
+    private void SetupNextDanceAnimation()
+    {
+        m_keyFrameIndex = 0;
         string path = Path.Combine(AnimationDirectory, KeyframeAnimations[m_listIndex]);
         string json = File.ReadAllText(path);
-        m_ActiveData = JsonUtility.FromJson< KeyframeData>(json);
+        m_ActiveData = JsonUtility.FromJson<KeyframeData>(json);
         CreateTargetsForKeyFrame(m_keyFrameIndex);
+    }
+
+    // Use this for initialization
+    void Start () {
+        m_currentScore = 0;
+        m_ActiveTargets = new List<GameObject>();
+        m_listIndex = 0;
+        SetupNextDanceAnimation();
+    }
+
+    public int GetCurrentScore()
+    {
+        return m_currentScore;
     }
 
     void CreateTargetsForKeyFrame(int keyframe)
@@ -31,6 +44,7 @@ public class DanceManager : MonoBehaviour {
         foreach (GameObject obj in m_ActiveTargets)
         {
             lastActiveTargets.Add(obj);
+            m_currentScore++;
         }
         m_ActiveTargets.Clear();
 
@@ -97,6 +111,11 @@ public class DanceManager : MonoBehaviour {
             if (m_keyFrameIndex < m_ActiveData.KeyFrames.Count)
             {
                 CreateTargetsForKeyFrame(m_keyFrameIndex);
+            }
+            else
+            {
+                m_listIndex++;
+                SetupNextDanceAnimation();
             }
         }
 	}

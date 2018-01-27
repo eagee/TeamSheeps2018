@@ -16,6 +16,7 @@ public class JointTracker : MonoBehaviour
     private KinectJointFilter m_jointFilter;
     private HandState m_leftHandState;
     private HandState m_rightHandState;
+    private float m_startingTime = 4.0f;
 
 
     void Awake()
@@ -45,6 +46,7 @@ public class JointTracker : MonoBehaviour
             return m_rightHandState == HandState.Closed;
         }
     }
+
 
     // Get body data from the body manager and track the joint for the active body
     void Update()
@@ -81,13 +83,25 @@ public class JointTracker : MonoBehaviour
             float zValue = (useZValue == true) ? jointPos.Z : 0f;
 
             Vector3 targetPosition = new Vector3((midSpinePosition.X + jointPos.X) * scale, (yOffset + jointPos.Y) * scale, zValue);
-            this.transform.position = targetPosition;
+
+            if(m_startingTime > 0f)
+            {
+                m_startingTime -= 1.0f * Time.deltaTime;
+                this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, 0.7f * Time.deltaTime);
+            }
+            else
+            {
+                this.transform.position = targetPosition;
+            }
+            
         }
         else
         {
             // Hide the object by moving it far away from the camera.
-            this.transform.position = new Vector3(100.0f, 100.0f, 100.0f);
-            
+            this.transform.position = new Vector3(Random.Range(-9f, 9f), -11f, 100.0f);
+
+            m_startingTime = 4.0f;
+
             // Attempt to find the active body number by iterating through the current bodies, finding a relevant body, and then assigning the active body. Once we have one
             // the user will be reacting to it from that point forward.
             int bodyIndex = 0;

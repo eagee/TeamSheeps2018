@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 253015227}
   - component: {fileID: 253015226}
   - component: {fileID: 253015225}
+  - component: {fileID: 253015229}
   m_Layer: 0
   m_Name: ShoulderLeft
   m_TagString: Player
@@ -329,6 +330,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &253015229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253015223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 17
 --- !u!1 &275538477
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +355,7 @@ GameObject:
   - component: {fileID: 275538481}
   - component: {fileID: 275538480}
   - component: {fileID: 275538479}
+  - component: {fileID: 275538483}
   m_Layer: 0
   m_Name: KneeLeft
   m_TagString: Player
@@ -458,6 +472,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &275538483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275538477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 8
 --- !u!1 &301879680
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +497,7 @@ GameObject:
   - component: {fileID: 301879684}
   - component: {fileID: 301879683}
   - component: {fileID: 301879682}
+  - component: {fileID: 301879686}
   m_Layer: 0
   m_Name: SpineBase
   m_TagString: Player
@@ -588,6 +615,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &301879686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 301879680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 11
 --- !u!1 &402442629
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,11 +912,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4187053821923042, guid: aec22ead51715d64790547c824257996, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -16.14
+      value: -9.71
       objectReference: {fileID: 0}
     - target: {fileID: 4187053821923042, guid: aec22ead51715d64790547c824257996, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.137
+      value: -10.97
       objectReference: {fileID: 0}
     - target: {fileID: 4187053821923042, guid: aec22ead51715d64790547c824257996, type: 2}
       propertyPath: m_LocalPosition.z
@@ -907,35 +946,9 @@ Prefab:
       propertyPath: m_Name
       value: Target
       objectReference: {fileID: 0}
-    - target: {fileID: 96155678702590858, guid: aec22ead51715d64790547c824257996,
-        type: 2}
-      propertyPath: m_Time
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 96155678702590858, guid: aec22ead51715d64790547c824257996,
-        type: 2}
-      propertyPath: m_MinVertexDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 96155678702590858, guid: aec22ead51715d64790547c824257996,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e96e9c44779d3b84b8d4289f78cf5e44, type: 2}
-    - target: {fileID: 96155678702590858, guid: aec22ead51715d64790547c824257996,
-        type: 2}
-      propertyPath: m_Parameters.widthMultiplier
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 96155678702590858, guid: aec22ead51715d64790547c824257996,
-        type: 2}
-      propertyPath: m_Parameters.numCornerVertices
-      value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 96155678702590858, guid: aec22ead51715d64790547c824257996,
-        type: 2}
-      propertyPath: m_Parameters.numCapVertices
-      value: 23
+    - target: {fileID: 1430157289155256, guid: aec22ead51715d64790547c824257996, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aec22ead51715d64790547c824257996, type: 2}
@@ -953,6 +966,7 @@ GameObject:
   - component: {fileID: 525449044}
   - component: {fileID: 525449043}
   - component: {fileID: 525449042}
+  - component: {fileID: 525449046}
   m_Layer: 0
   m_Name: ElbowRight
   m_TagString: Player
@@ -1069,6 +1083,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &525449046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 525449040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 15
 --- !u!1 &532932287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1293,7 @@ GameObject:
   - component: {fileID: 547946221}
   - component: {fileID: 547946220}
   - component: {fileID: 547946219}
+  - component: {fileID: 547946223}
   m_Layer: 0
   m_Name: FootRight
   m_TagString: Player
@@ -1381,6 +1408,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &547946223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 547946217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 5
 --- !u!1001 &581376593
 Prefab:
   m_ObjectHideFlags: 0
@@ -1443,6 +1482,7 @@ GameObject:
   - component: {fileID: 649799605}
   - component: {fileID: 649799604}
   - component: {fileID: 649799603}
+  - component: {fileID: 649799609}
   m_Layer: 0
   m_Name: HandLeft
   m_TagString: Player
@@ -1583,6 +1623,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 1
+--- !u!114 &649799609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649799601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 12
 --- !u!1 &653188355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,6 +2097,7 @@ GameObject:
   - component: {fileID: 1047219610}
   - component: {fileID: 1047219609}
   - component: {fileID: 1047219608}
+  - component: {fileID: 1047219612}
   m_Layer: 0
   m_Name: Neck
   m_TagString: Player
@@ -2159,6 +2212,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &1047219612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1047219606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 18
 --- !u!1 &1059318749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2368,7 @@ GameObject:
   - component: {fileID: 1100117196}
   - component: {fileID: 1100117195}
   - component: {fileID: 1100117194}
+  - component: {fileID: 1100117198}
   m_Layer: 0
   m_Name: HipLeft
   m_TagString: Player
@@ -2417,6 +2483,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &1100117198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1100117192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 10
 --- !u!1 &1105499221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,6 +2508,7 @@ GameObject:
   - component: {fileID: 1105499225}
   - component: {fileID: 1105499224}
   - component: {fileID: 1105499223}
+  - component: {fileID: 1105499227}
   m_Layer: 0
   m_Name: HipRight
   m_TagString: Player
@@ -2544,6 +2623,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &1105499227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1105499221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 9
 --- !u!1 &1142517219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2710,7 +2801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f54e3ac7c3083940849458ebac4698b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationName: EaganKungFu6
+  AnimationName: EaganKungFu7
   AnimationDirectory: Q:\TeamSheeps\TeamSheeps2018\TeamSheeps2018\Assets\AwakeAssets\DancingAnimations\Dances\
   FrameTime: 4
   IsRecording: 0
@@ -2758,6 +2849,7 @@ GameObject:
   - component: {fileID: 1174398577}
   - component: {fileID: 1174398576}
   - component: {fileID: 1174398575}
+  - component: {fileID: 1174398580}
   m_Layer: 0
   m_Name: HandRight
   m_TagString: Player
@@ -2885,6 +2977,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 1
+--- !u!114 &1174398580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1174398573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 14
 --- !u!1001 &1186105291
 Prefab:
   m_ObjectHideFlags: 0
@@ -2939,6 +3043,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114939616793069774, guid: 1d1277a9c89603b4e9c39afed2e8230e,
+        type: 2}
+      propertyPath: KeyframeAnimations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4516338816590782, guid: 1d1277a9c89603b4e9c39afed2e8230e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -32.523865
@@ -2980,11 +3089,16 @@ Prefab:
     - target: {fileID: 114939616793069774, guid: 1d1277a9c89603b4e9c39afed2e8230e,
         type: 2}
       propertyPath: KeyframeAnimations.Array.data[0]
-      value: EaganKungFu3.json
+      value: EaganKungFu7.json
       objectReference: {fileID: 0}
     - target: {fileID: 1429388579875264, guid: 1d1277a9c89603b4e9c39afed2e8230e, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114939616793069774, guid: 1d1277a9c89603b4e9c39afed2e8230e,
+        type: 2}
+      propertyPath: KeyframeAnimations.Array.data[1]
+      value: EaganKungFu6.json
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d1277a9c89603b4e9c39afed2e8230e, type: 2}
@@ -3788,6 +3902,7 @@ GameObject:
   - component: {fileID: 1635620883}
   - component: {fileID: 1635620882}
   - component: {fileID: 1635620881}
+  - component: {fileID: 1635620885}
   m_Layer: 0
   m_Name: FootLeft
   m_TagString: Player
@@ -3902,6 +4017,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &1635620885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1635620879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 6
 --- !u!1 &1659910905
 GameObject:
   m_ObjectHideFlags: 0
@@ -4315,6 +4442,7 @@ GameObject:
   - component: {fileID: 1915849545}
   - component: {fileID: 1915849544}
   - component: {fileID: 1915849543}
+  - component: {fileID: 1915849547}
   m_Layer: 0
   m_Name: KneeRight
   m_TagString: Player
@@ -4431,6 +4559,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &1915849547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1915849541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 7
 --- !u!1 &1960655318
 GameObject:
   m_ObjectHideFlags: 0
@@ -4444,6 +4584,7 @@ GameObject:
   - component: {fileID: 1960655322}
   - component: {fileID: 1960655321}
   - component: {fileID: 1960655320}
+  - component: {fileID: 1960655324}
   m_Layer: 0
   m_Name: SpineMid
   m_TagString: Player
@@ -4558,6 +4699,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &1960655324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1960655318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 100
 --- !u!4 &1980027795 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4242041722772228, guid: 887afb9e53d66d946a3e49cfc6603943,
@@ -4778,6 +4931,7 @@ GameObject:
   - component: {fileID: 2065545816}
   - component: {fileID: 2065545815}
   - component: {fileID: 2065545814}
+  - component: {fileID: 2065545818}
   m_Layer: 0
   m_Name: Head
   m_TagString: Player
@@ -4892,6 +5046,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &2065545818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2065545812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 19
 --- !u!1001 &2079352063
 Prefab:
   m_ObjectHideFlags: 0
@@ -4952,6 +5118,7 @@ GameObject:
   - component: {fileID: 2127952397}
   - component: {fileID: 2127952396}
   - component: {fileID: 2127952395}
+  - component: {fileID: 2127952399}
   m_Layer: 0
   m_Name: ShoulderRight
   m_TagString: Player
@@ -5066,6 +5233,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &2127952399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2127952393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 16
 --- !u!1 &2129606531
 GameObject:
   m_ObjectHideFlags: 0
@@ -5079,6 +5258,7 @@ GameObject:
   - component: {fileID: 2129606535}
   - component: {fileID: 2129606534}
   - component: {fileID: 2129606533}
+  - component: {fileID: 2129606537}
   m_Layer: 0
   m_Name: ElbowLeft
   m_TagString: Player
@@ -5195,6 +5375,18 @@ MonoBehaviour:
   yOffset: -0.1
   ActiveBodyNumber: 0
   useZValue: 0
+--- !u!114 &2129606537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2129606531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72d94ef54c1274a9128ba443edc040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredScore: 13
 --- !u!1 &2139216218
 GameObject:
   m_ObjectHideFlags: 0
