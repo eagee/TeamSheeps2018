@@ -8,7 +8,7 @@ public class HeadNumberScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        int bodyNumber = GetComponent<JointTracker>().BodyNumber;
+        int bodyNumber = GetComponent<JointTracker>().ActiveBodyNumber;
         GetComponentInChildren<TextMesh>().text = bodyNumber.ToString();
 	}
 }
