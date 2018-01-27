@@ -10,7 +10,7 @@ public class JointTracker : MonoBehaviour
     public BodySourceManager _bodyManager;
     public float scale = 8f;
     public float yOffset = -5f;
-    public int BodyNumber = 0;
+    public int ActiveBodyNumber = 0;
     public bool useZValue = false;
 
     private KinectJointFilter m_jointFilter;
@@ -61,16 +61,16 @@ public class JointTracker : MonoBehaviour
         }
 
         // Use for actual multi-player environments!
-        if ((data.Length >= BodyNumber) && (data[BodyNumber] != null) && (data[BodyNumber].IsTracked))
+        if ((data.Length >= ActiveBodyNumber) && (data[ActiveBodyNumber] != null) && (data[ActiveBodyNumber].IsTracked))
         {
             GetComponent<Rigidbody>().isKinematic = true;
             
-            m_jointFilter.UpdateFilter(data[BodyNumber]);
+            m_jointFilter.UpdateFilter(data[ActiveBodyNumber]);
             var Joints = m_jointFilter.GetFilteredJoints();
 
-            m_leftHandState = data[BodyNumber].HandLeftState;
-            m_rightHandState = data[BodyNumber].HandRightState;
-
+            m_leftHandState = data[ActiveBodyNumber].HandLeftState;
+            m_rightHandState = data[ActiveBodyNumber].HandRightState;
+            
             // Grab the mid spine position, we'll use this to make all other joint movement relative to the spine (this way we can limit the Y position of the character)
             var midSpinePosition = Joints[(int)JointType.SpineMid];
             var jointPos = Joints[(int)JointToUse];
@@ -87,6 +87,19 @@ public class JointTracker : MonoBehaviour
         {
             // Hide the object by moving it far away from the camera.
             this.transform.position = new Vector3(100.0f, 100.0f, 100.0f);
+            
+            // Attempt to find the active body number by iterating through the current bodies, finding a relevant body, and then assigning the active body. Once we have one
+            // the user will be reacting to it from that point forward.
+            int bodyIndex = 0;
+            foreach (Body body in data)
+            {
+                if ((body != null) && (body.IsTracked)) 
+                {
+                    ActiveBodyNumber = bodyIndex;
+                    break;
+                }
+                bodyIndex++;
+            }
         }
     }
 }
