@@ -28,12 +28,12 @@ public class HandScript : MonoBehaviour {
             if (m_jointTracker.leftHandClosed)
             {
                 //GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-                GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Tiled;
+                //GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Tiled;
             }
             else
             {
                 //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 255);
-                GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Simple;
+                //GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Simple;
             }
         }
         else
