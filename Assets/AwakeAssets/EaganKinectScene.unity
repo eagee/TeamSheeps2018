@@ -700,7 +700,90 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1743626949425970, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1169462887809390, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1185079984392194, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703609237709040, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149461243953326, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212162419034663476, guid: a4f8f492df32a34409b7244fdf128ec8,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727097915840594, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1381782658886446, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545570817122358, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113627320433952, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633264207497358, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415558932360944, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798712152234360, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1691132803488874, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1345397615422456, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854720660165292, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1896557714019266, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 212248757824220660, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212211807342531802, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212681602729899302, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212162419034663476, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212178661407755632, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212731929266233596, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212579855245946072, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212119514806533588, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212972234069537220, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 212005435335355730, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 135277347421251660, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 135911346800504854, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 135027825684126136, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
+    - {fileID: 135878449849420660, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a4f8f492df32a34409b7244fdf128ec8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1059318749
@@ -976,6 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f54e3ac7c3083940849458ebac4698b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationName: EaganKungFu
 --- !u!1 &1720927440
 GameObject:
   m_ObjectHideFlags: 0

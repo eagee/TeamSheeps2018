@@ -9,7 +9,7 @@ public class JointTracker : MonoBehaviour
     public JointType JointToUse;
     public BodySourceManager _bodyManager;
     public float scale = 8f;
-    public float yOffset = -5f;
+    public float yOffset = -0.1f;
     public int ActiveBodyNumber = 0;
     public bool useZValue = false;
 
