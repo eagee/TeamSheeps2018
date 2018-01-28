@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4743480724777868}
+  - component: {fileID: 114279577243852334}
   m_Layer: 0
   m_Name: BackgroundPrefab
   m_TagString: Untagged
@@ -199,8 +200,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991453624585486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -2.5, z: 1}
+  m_LocalScale: {x: 1.25, y: 0.66750073, z: 1}
   m_Children:
   - {fileID: 4181524824281090}
   - {fileID: 4269566748784580}
@@ -562,6 +563,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drift_vector: {x: -0.3, y: 0, z: 0}
   spin_vector: {x: 0, y: 0, z: -0}
+--- !u!114 &114279577243852334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1991453624585486}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1774f393a24f641939c6c07a55690a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialScale: {x: 6.25, y: 3.4, z: 1}
+  initialPosition: {x: 0, y: -2.5, z: 1}
+  finalScale: {x: 1.25, y: 0.6675, z: 1}
+  finalPosition: {x: 0, y: -2.5, z: 1}
+  transitionTime: 2
+  initial_delay: 6.5
 --- !u!114 &114701410131462616
 MonoBehaviour:
   m_ObjectHideFlags: 1

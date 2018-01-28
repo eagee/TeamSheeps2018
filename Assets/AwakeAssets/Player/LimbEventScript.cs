@@ -5,7 +5,7 @@ using UnityEngine;
 public class LimbEventScript : MonoBehaviour {
 
     public int requiredScore = 100;
-
+    public GameObject PrefabToSpawn;
     private DanceManager m_DanceManager;
 
     void Awake()
@@ -17,6 +17,7 @@ public class LimbEventScript : MonoBehaviour {
     {
         if(m_DanceManager.GetCurrentScore() > requiredScore)
         {
+            GameObject newTarget = Instantiate(PrefabToSpawn, this.transform.position, Quaternion.identity);
             DestroyObject(this.gameObject);
         }
     }

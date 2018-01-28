@@ -5,6 +5,7 @@ using System.IO;
 
 public class DanceManager : MonoBehaviour {
     public GameObject targetPrefab;
+    private StarfieldMover m_StartFieldMover;
     public string AnimationDirectory = "Q:\\TeamSheeps\\TeamSheeps2018\\TeamSheeps2018\\Assets\\AwakeAssets\\DancingAnimations\\Dances\\";
     public List<string> KeyframeAnimations;
     private KeyframeData m_ActiveData = new KeyframeData();
@@ -12,15 +13,26 @@ public class DanceManager : MonoBehaviour {
     private int m_keyFrameIndex = 0;
     private List<GameObject> m_ActiveTargets;
     private int m_currentScore;
+    private bool m_playerIsTardy = false;
 
     public bool UsePeriodicPointTimer = false;
     public float freePointInterval = 0f;
+    private float m_LastStarfieldPosY;
     float countdownToPoint;
     public int winningScore = 100;
+    public float tardyTimeout = 4f;
+    private float m_tardyCounter = 0f;
+
+    void Awake()
+    {
+        m_StartFieldMover = FindObjectOfType<StarfieldMover>();
+        m_LastStarfieldPosY = m_StartFieldMover.transform.position.y;
+    }
 
     private void SetupNextDanceAnimation()
     {
         m_keyFrameIndex = 0;
+        m_tardyCounter = 0f;
         string path = Path.Combine(AnimationDirectory, KeyframeAnimations[m_listIndex]);
         string json = File.ReadAllText(path);
         m_ActiveData = JsonUtility.FromJson<KeyframeData>(json);
@@ -34,6 +46,8 @@ public class DanceManager : MonoBehaviour {
         m_currentScore = 0;
         m_ActiveTargets = new List<GameObject>();
         m_listIndex = 0;
+        m_tardyCounter = 0f;
+        m_playerIsTardy = false;
         SetupNextDanceAnimation();
     }
 
@@ -42,9 +56,13 @@ public class DanceManager : MonoBehaviour {
         return m_currentScore;
     }
 
+    public bool PlayerIsTardy()
+    {
+        return m_playerIsTardy;
+    }
+
     void CreateTargetsForKeyFrame(int keyframe)
     {
-        
         // Create a copy of the targets for the last frame so that we can
         // use them as our starting positions
         List<GameObject> lastActiveTargets = new List<GameObject>();
@@ -54,6 +72,7 @@ public class DanceManager : MonoBehaviour {
             m_currentScore++;
         }
         m_ActiveTargets.Clear();
+        m_tardyCounter = 0f;
 
         // Create a new set of targets based on the next key frame (starting them at the
         // position of our last targets)
@@ -71,7 +90,12 @@ public class DanceManager : MonoBehaviour {
                     startingPosition = lastActiveTargets[index].transform.position;
                 }
                 GameObject newTarget = Instantiate(targetPrefab, startingPosition, Quaternion.identity);
-                newTarget.GetComponent<TargetScript>().TargetPostion = m_ActiveData.KeyFrames[keyframe].vec3List[index].vector;
+                Vector3 targetPosition = m_ActiveData.KeyFrames[keyframe].vec3List[index].vector;
+                if (m_LastStarfieldPosY != m_StartFieldMover.transform.position.y)
+                {
+                    targetPosition.y = m_StartFieldMover.transform.position.y + m_StartFieldMover.Speed * 8f;
+                }
+                newTarget.GetComponent<TargetScript>().TargetPostion = targetPosition;
                 m_ActiveTargets.Add(newTarget);
             }
         }
@@ -112,6 +136,7 @@ public class DanceManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+
         //if (freePointInterval > 0f && UsePeriodicPointTimer)
         //{
         //    countdownToPoint -= Time.deltaTime;
@@ -134,5 +159,15 @@ public class DanceManager : MonoBehaviour {
                 SetupNextDanceAnimation();
             }
         }
-	}
+
+        m_tardyCounter += Time.deltaTime;
+        if(m_tardyCounter > tardyTimeout)
+        {
+            m_playerIsTardy = true;
+        }
+        else
+        {
+            m_playerIsTardy = false;
+        }
+    }
 }

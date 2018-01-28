@@ -5,7 +5,7 @@ using Windows.Kinect;
 
 public class JointTracker : MonoBehaviour
 {
-
+    public GameObject offsetObject;
     public JointType JointToUse;
     public BodySourceManager _bodyManager;
     public float scale = 8f;
@@ -82,7 +82,8 @@ public class JointTracker : MonoBehaviour
 
             float zValue = (useZValue == true) ? jointPos.Z : 0f;
 
-            Vector3 targetPosition = new Vector3((midSpinePosition.X + jointPos.X) * scale, (yOffset + jointPos.Y) * scale, zValue);
+            
+            Vector3 targetPosition = new Vector3((midSpinePosition.X + jointPos.X) * scale, ((yOffset + jointPos.Y ) * scale), zValue);
 
             if(m_startingTime > 0f)
             {
@@ -91,6 +92,8 @@ public class JointTracker : MonoBehaviour
             }
             else
             {
+                if(offsetObject != null)
+                    targetPosition.y += offsetObject.transform.position.y;
                 this.transform.position = targetPosition;
             }
             

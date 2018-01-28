@@ -7,6 +7,9 @@ TagManager:
   - Dot
   - Target
   - body_image
+  - grass
+  - text1
+  - text2
   layers:
   - Default
   - TransparentFX
