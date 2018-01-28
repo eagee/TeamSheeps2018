@@ -16,7 +16,8 @@ public class TargetScript : MonoBehaviour
 
     public void HandleDestruction()
     {
-        DestroyObject(this.gameObject);
+        GetComponent<Animator>().SetBool("TargetDying", true);
+        DestroyObject(this.gameObject, 2.0f);
     }
 
     void Start()
