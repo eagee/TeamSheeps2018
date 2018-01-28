@@ -51,6 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23733fa261b264348affa2036f8b8c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetPrefab: {fileID: 1430157289155256, guid: aec22ead51715d64790547c824257996,
+    type: 2}
   AnimationDirectory: Q:\TeamSheeps\TeamSheeps2018\TeamSheeps2018\Assets\AwakeAssets\DancingAnimations\Dances\
   KeyframeAnimations:
-  - EaganTestDance.json
+  - EaganKungFu7.json
+  - EaganKungFu6.json
+  UsePeriodicPointTimer: 0
+  freePointInterval: 0
+  winningScore: 100

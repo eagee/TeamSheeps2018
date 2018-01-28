@@ -13,6 +13,11 @@ public class DanceManager : MonoBehaviour {
     private List<GameObject> m_ActiveTargets;
     private int m_currentScore;
 
+    public bool UsePeriodicPointTimer = false;
+    public float freePointInterval = 0f;
+    float countdownToPoint;
+    public int winningScore = 100;
+
     private void SetupNextDanceAnimation()
     {
         m_keyFrameIndex = 0;
@@ -20,6 +25,8 @@ public class DanceManager : MonoBehaviour {
         string json = File.ReadAllText(path);
         m_ActiveData = JsonUtility.FromJson<KeyframeData>(json);
         CreateTargetsForKeyFrame(m_keyFrameIndex);
+
+        countdownToPoint = freePointInterval;
     }
 
     // Use this for initialization
@@ -105,6 +112,15 @@ public class DanceManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        //if (freePointInterval > 0f && UsePeriodicPointTimer)
+        //{
+        //    countdownToPoint -= Time.deltaTime;
+        //    if (countdownToPoint < 0f)
+        //    {
+        //        countdownToPoint = freePointInterval;
+        //        m_currentScore++;
+        //    }
+        //}
         if(AllTargetsInFrameAreActivated())
         {
             m_keyFrameIndex++;

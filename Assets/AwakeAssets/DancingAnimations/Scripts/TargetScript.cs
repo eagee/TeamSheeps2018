@@ -5,12 +5,15 @@ using UnityEngine;
 public class TargetScript : MonoBehaviour
 {
     public bool Activated = false;
-    public Sprite InactiveSprite;
-    public Sprite ActiveSprite;
     public Vector3 TargetPostion = new Vector3();
     private float m_MaxDisabledTime;
     private float m_DisabledTimer;
-    
+
+    public Vector3 wander1;
+    public Vector3 wander2;
+    public float wanderSpeed;
+    public float rotateSpeed;
+
     public void HandleDestruction()
     {
         DestroyObject(this.gameObject);
@@ -22,6 +25,7 @@ public class TargetScript : MonoBehaviour
         m_MaxDisabledTime = .40f;
         GetComponent<SphereCollider>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<TrailRenderer>().enabled = true;
         Activated = false;
     }
 
@@ -48,16 +52,16 @@ public class TargetScript : MonoBehaviour
         {
             GetComponent<SphereCollider>().enabled = true;
             GetComponent<SpriteRenderer>().enabled = true;
+            GetComponent<TrailRenderer>().enabled = false;
+            Vector3 w1 = this.transform.position + (Mathf.Sin(Time.time * wanderSpeed) * wander1);
+            Vector3 w2 = this.transform.position + (Mathf.Cos(Time.time * wanderSpeed) * wander2);
+            TargetPostion = Vector3.Lerp(w1, w2, 0.5f);
         }
         
-        if (Activated)
-        {
-            GetComponent<SpriteRenderer>().sprite = ActiveSprite;
-        }
-        else
+        if (!Activated)
         {
             this.transform.position = Vector3.Slerp(this.transform.position, TargetPostion, 2.5f * Time.deltaTime);
-            GetComponent<SpriteRenderer>().sprite = InactiveSprite;
+            this.transform.Rotate(Vector3.back * rotateSpeed * Time.deltaTime);
         }
     }
 }
