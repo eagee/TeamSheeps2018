@@ -17,7 +17,7 @@ public class TargetScript : MonoBehaviour
     public void HandleDestruction()
     {
         GetComponent<Animator>().SetBool("TargetDying", true);
-        DestroyObject(this.gameObject, 2.0f);
+        DestroyObject(this.gameObject, 0.5f);
     }
 
     void Start()
@@ -53,7 +53,8 @@ public class TargetScript : MonoBehaviour
         {
             GetComponent<SphereCollider>().enabled = true;
             GetComponent<SpriteRenderer>().enabled = true;
-            GetComponent<TrailRenderer>().enabled = false;
+            if (m_DisabledTimer > m_MaxDisabledTime * 2)
+                GetComponent<TrailRenderer>().enabled = false;
             Vector3 w1 = this.transform.position + (Mathf.Sin(Time.time * wanderSpeed) * wander1);
             Vector3 w2 = this.transform.position + (Mathf.Cos(Time.time * wanderSpeed) * wander2);
             TargetPostion = Vector3.Lerp(w1, w2, 0.5f);
