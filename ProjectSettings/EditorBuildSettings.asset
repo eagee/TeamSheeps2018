@@ -5,11 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/KinectPrototype.unity
-    guid: fdde4c32fcf57c841bde3c3b43f8e494
   - enabled: 1
-    path: Assets/temp_stuff/JoeDying0.unity
+    path: Assets/AwakeAssets/Title.unity
+    guid: 64698e15915440648b704485bb5a8315
+  - enabled: 1
+    path: Assets/AwakeAssets/JoeDying0.unity
     guid: 91e70c411a3ce784394fd2ebff78a76c
   - enabled: 1
     path: Assets/AwakeAssets/EaganKinectScene.unity

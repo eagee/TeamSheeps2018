@@ -71,7 +71,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetObject: {fileID: 0}
-  HeartOffset: 4
+  HeartOffset: 3.48
+  wander1: {x: -1.03, y: 0.2, z: 0}
+  wander2: {x: 0.2, y: 0.13, z: 0}
+  wanderSpeed: 3
+  rotateSpeed: 40
 --- !u!212 &212650710251858682
 SpriteRenderer:
   m_ObjectHideFlags: 1

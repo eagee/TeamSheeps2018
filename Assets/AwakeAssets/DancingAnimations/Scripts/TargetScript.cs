@@ -9,6 +9,7 @@ public class TargetScript : MonoBehaviour
     private float m_MaxDisabledTime;
     private float m_DisabledTimer;
     private float m_ActivateAfter = 10f;
+    public PlayPingScript clipToPlay;
 
     public Vector3 wander1;
     public Vector3 wander2;
@@ -35,6 +36,7 @@ public class TargetScript : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<TrailRenderer>().enabled = true;
         Activated = false;
+        clipToPlay = FindObjectOfType<PlayPingScript>();
     }
 
     
@@ -43,6 +45,7 @@ public class TargetScript : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            clipToPlay.PlayOnce();
             Activated = true;
         }
     }

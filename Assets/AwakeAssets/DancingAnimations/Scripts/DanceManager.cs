@@ -12,7 +12,7 @@ public class DanceManager : MonoBehaviour {
     private int m_listIndex = 0;
     private int m_keyFrameIndex = 0;
     private List<GameObject> m_ActiveTargets;
-    private int m_currentScore;
+    private float m_currentScore;
     private bool m_playerIsTardy = false;
 
     public bool UsePeriodicPointTimer = false;
@@ -53,7 +53,7 @@ public class DanceManager : MonoBehaviour {
 
     public int GetCurrentScore()
     {
-        return m_currentScore;
+        return (int)m_currentScore;
     }
 
     public bool PlayerIsTardy()
@@ -69,7 +69,7 @@ public class DanceManager : MonoBehaviour {
         foreach (GameObject obj in m_ActiveTargets)
         {
             lastActiveTargets.Add(obj);
-            m_currentScore++;
+            //m_currentScore++;
         }
         m_ActiveTargets.Clear();
         m_tardyCounter = 0f;
@@ -136,7 +136,7 @@ public class DanceManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
+        m_currentScore += Time.deltaTime;
         //if (freePointInterval > 0f && UsePeriodicPointTimer)
         //{
         //    countdownToPoint -= Time.deltaTime;

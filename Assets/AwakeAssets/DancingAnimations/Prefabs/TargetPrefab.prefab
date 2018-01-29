@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Activated: 0
   TargetPostion: {x: 0, y: 0, z: 0}
+  clipToPlay: {fileID: 0}
   wander1: {x: 0.2, y: 0.3, z: 0}
   wander2: {x: 0.3, y: 0.2, z: 0}
   wanderSpeed: 3
